@@ -1,0 +1,9 @@
+{
+  "name": "infcraft-cli",
+  "version": "1.0.0",
+  "main": "infc.js",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "4.1.2"
+  }
+}
