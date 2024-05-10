@@ -20,7 +20,7 @@ function sleep(ms) {
 
 async function pairItems(first, second, status, i) {
     return new Promise(async (resolve) => {
-        await sleep(i * 10)
+        await sleep(i * 100)
         await fetch(`https://infiniteback.org/pair?first=${first.text}&second=${second.text}`)
             .then((response) => response.json()).then((data) => {
                 status.totalPairs++;
