@@ -13,11 +13,14 @@ app.get("/list/:page", (req, res) => {
   const start = (page - 1) * perPage;
   const end = start + perPage;
   const elements = data.elements.slice(start, end);
+  const freq = Object.values(data.recipes).reduce((acc, curr) => {
+    acc[curr] = (acc[curr] || 0) + 1;
+    return acc;
+  }, {});
+
   elements.forEach((element) => {
     const idx = data.elements.findIndex((e) => e.text === element.text);
-    element.recipeCount = Object.values(data.recipes).filter(
-      (result) => result === idx
-    ).length;
+    element.recipeCount = freq[idx] || 0;
   });
 
   res.json({
